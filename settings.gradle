@@ -1,0 +1,12 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        // Fabric
+        maven { url = 'https://maven.fabricmc.net/' }
+        // NeoForge
+        maven { url = 'https://maven.neoforged.net/releases/' }
+    }
+}
+
+rootProject.name = 'JesusTotem'
+include('Common', 'Fabric', 'NeoForge')
