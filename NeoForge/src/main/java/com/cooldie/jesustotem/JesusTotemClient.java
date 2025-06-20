@@ -20,6 +20,7 @@ public class JesusTotemClient {
 
     public JesusTotemClient(FMLModContainer container, IEventBus eventBus, Dist dist) {
         client = new ControllerClient(CONFIG_FILE);
+
         container.registerExtensionPoint(IConfigScreenFactory.class, new IConfigScreenFactory() {
             public Screen createScreen(ModContainer container, Screen screen) {
                 return new ConfigScreen(screen);

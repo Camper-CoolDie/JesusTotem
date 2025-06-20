@@ -38,7 +38,7 @@ public class JesusRenderer {
         int guiWidth = graphics.guiWidth();
         int guiHeight = graphics.guiHeight();
         graphics.blit(
-            (resourceLocation) -> RenderType.blockScreenEffect(resourceLocation),
+            RenderType::blockScreenEffect,
             JESUS_TEXTURES[jesusIndex],
             0, 0,
             0f, 0f,

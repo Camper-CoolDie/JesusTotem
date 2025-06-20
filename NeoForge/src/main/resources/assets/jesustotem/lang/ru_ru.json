@@ -1,8 +1,5 @@
 {
     "fml.menu.mods.info.description.jesustotem": "Этот мод добавляет божественные визуальные и звуковые эффекты тотему бессмертия. Испытай силу Бога!",
-    "modmenu.descriptionTranslation.jesustotem": "Этот мод добавляет божественные визуальные и звуковые эффекты тотему бессмертия. Испытай силу Бога!",
-    "modmenu.nameTranslation.jesustotem": "Божественный тотем",
-    "modmenu.summaryTranslation.jesustotem": "Этот мод добавляет божественные визуальные и звуковые эффекты тотему бессмертия.",
     "options.jesustotem.fadeIn": "Появление",
     "options.jesustotem.fadeIn.tooltip": "Длительность появления Бога.",
     "options.jesustotem.fadeOut": "Исчезновение",

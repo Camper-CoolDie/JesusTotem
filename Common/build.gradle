@@ -12,9 +12,3 @@ dependencies {
     // Fabric Loader
     modImplementation "net.fabricmc:fabric-loader:$fabric_loader_version"
 }
-
-tasks.withType(ProcessResources).configureEach {
-    filesMatching(['*.mixins.json']) {
-        expand project.properties.clone()
-    }
-}

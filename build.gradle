@@ -29,7 +29,6 @@ subprojects {
 
         tasks.withType(Jar).configureEach {
             from project(':Common').sourceSets.main.output.classesDirs
-            from rootProject.file('LICENSE.txt')
             dependsOn project(':Common').compileJava
 
             manifest {
@@ -42,6 +41,10 @@ subprojects {
                     'Implementation-Vendor': mod_author,
                     'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
                 ])
+            }
+
+            metaInf {
+                from rootProject.file('LICENSE.txt')
             }
         }
 

@@ -15,7 +15,7 @@ neoForge {
 }
 
 tasks.withType(ProcessResources).configureEach {
-    filesMatching(['META-INF/neoforge.mods.toml']) {
+    filesMatching(['META-INF/neoforge.mods.toml', '*.mixins.json']) {
         expand project.properties.clone()
     }
 }

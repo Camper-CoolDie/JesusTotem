@@ -22,7 +22,7 @@ loom {
 }
 
 tasks.withType(ProcessResources).configureEach {
-    filesMatching(['fabric.mod.json']) {
+    filesMatching(['fabric.mod.json', '*.mixins.json']) {
         expand project.properties.clone()
     }
 }
