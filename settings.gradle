@@ -1,0 +1,10 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        // Fabric
+        maven { url = 'https://maven.fabricmc.net/' }
+    }
+}
+
+rootProject.name = 'JesusTotem'
+include('Fabric')
