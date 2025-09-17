@@ -145,7 +145,12 @@ public class ConfigScreen extends Screen {
         protected void updateMessage() {
             setMessage(value == 0f
                 ? Component.translatable("options.generic_value", caption, CommonComponents.OPTION_OFF)
-                : Component.translatable("options.percent_value", caption, (int) (value * 100)));
+                : Component.translatable(
+                    "options.jesustotem.percent_and_millisecond_value",
+                    caption,
+                    (int) (value * 100),
+                    getValue()
+                ));
         }
 
         @Override
