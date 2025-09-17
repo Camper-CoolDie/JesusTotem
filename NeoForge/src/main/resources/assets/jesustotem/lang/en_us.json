@@ -6,6 +6,7 @@
     "options.jesustotem.fadeOut.tooltip": "Fade-out duration of Jesus.",
     "options.jesustotem.hold": "Hold",
     "options.jesustotem.hold.tooltip": "Hold duration of Jesus.",
+    "options.jesustotem.percent_and_millisecond_value": "%s: %s%% (%s ms)",
     "options.jesustotem.resetAll": "Reset Durations",
     "options.jesustotem.title": "Jesus' Totem Configuration"
 }
