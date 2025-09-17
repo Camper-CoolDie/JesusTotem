@@ -1,5 +1,7 @@
 apply plugin: 'net.neoforged.moddev'
 
+base.archivesName = "$mod_id-${name.toLowerCase()}-mc$neoforge_minecraft_version"
+
 dependencies {
     // Mixin
     compileOnly 'org.spongepowered:mixin:0.8.7'

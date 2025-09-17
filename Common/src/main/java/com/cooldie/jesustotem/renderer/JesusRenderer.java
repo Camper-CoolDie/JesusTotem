@@ -1,14 +1,31 @@
 package com.cooldie.jesustotem.renderer;
 
 import com.cooldie.jesustotem.controllers.ControllerJesus;
+import com.mojang.blaze3d.pipeline.BlendFunction;
+import com.mojang.blaze3d.pipeline.RenderPipeline;
+import com.mojang.blaze3d.platform.DepthTestFunction;
+import com.mojang.blaze3d.shaders.UniformType;
+import com.mojang.blaze3d.vertex.DefaultVertexFormat;
+import com.mojang.blaze3d.vertex.VertexFormat;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ARGB;
 
 public class JesusRenderer {
     private static final ResourceLocation[] JESUS_TEXTURES;
+    private static final RenderPipeline JESUS = RenderPipeline.builder()
+        .withUniform("DynamicTransforms", UniformType.UNIFORM_BUFFER)
+        .withUniform("Projection", UniformType.UNIFORM_BUFFER)
+        .withVertexShader("core/position_tex_color")
+        .withFragmentShader("core/position_tex_color")
+        .withSampler("Sampler0")
+        .withBlend(BlendFunction.TRANSLUCENT)
+        .withVertexFormat(DefaultVertexFormat.POSITION_TEX_COLOR, VertexFormat.Mode.QUADS)
+        .withLocation("pipeline/fire_screen_effect")
+        .withDepthTestFunction(DepthTestFunction.NO_DEPTH_TEST)
+        .withDepthWrite(false)
+        .build();
 
     static {
         JESUS_TEXTURES = new ResourceLocation[3];
@@ -38,7 +55,7 @@ public class JesusRenderer {
         int guiWidth = graphics.guiWidth();
         int guiHeight = graphics.guiHeight();
         graphics.blit(
-            RenderType::guiTexturedOverlay,
+            JESUS,
             JESUS_TEXTURES[jesusIndex],
             0, 0,
             0f, 0f,
