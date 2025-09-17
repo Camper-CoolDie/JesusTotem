@@ -6,6 +6,7 @@
     "options.jesustotem.fadeOut.tooltip": "Длительность исчезновения Бога.",
     "options.jesustotem.hold": "Задержка",
     "options.jesustotem.hold.tooltip": "Длительность задержки Бога.",
+    "options.jesustotem.percent_and_millisecond_value": "%s: %s%% (%s мс)",
     "options.jesustotem.resetAll": "Сбросить настройки",
     "options.jesustotem.title": "Настройки Божественного тотема"
 }
