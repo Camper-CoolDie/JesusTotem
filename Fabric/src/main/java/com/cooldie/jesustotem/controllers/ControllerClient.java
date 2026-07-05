@@ -9,6 +9,7 @@ public class ControllerClient {
 
     public ControllerClient(File configFile) {
         this.configFile = configFile;
+        ControllerConfig.load();
         jesusRenderer = new JesusRenderer();
     }
 }
