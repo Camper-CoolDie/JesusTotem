@@ -21,8 +21,6 @@ subprojects {
     }
 
     if (name != 'Common') {
-        base.archivesName = "$mod_id-${name.toLowerCase()}-mc$minecraft_version"
-
         dependencies {
             implementation project(':Common')
         }
