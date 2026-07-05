@@ -1,14 +1,14 @@
 {
-    "required": true,
-    "minVersion": "0.8",
-    "package": "com.cooldie.jesustotem.mixin",
-    "compatibilityLevel": "JAVA_$java_version",
-    "client": [
-        "MixinGameRenderer",
-        "MixinGui",
-        "MixinGuiGraphics"
-    ],
-    "injectors": {
-        "defaultRequire": 1
-    }
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.cooldie.jesustotem.mixin",
+  "compatibilityLevel": "JAVA_$java_version",
+  "client": [
+    "MixinGameRenderer",
+    "MixinGui",
+    "MixinGuiGraphics"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }
