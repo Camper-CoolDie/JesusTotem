@@ -22,7 +22,11 @@ public class MixinGuiGraphics {
         float red, float green, float blue, float alpha
     ) {};
 
-    @Inject(at = @At("HEAD"), method = "blit(Lnet/minecraft/resources/ResourceLocation;IIFFIIII)V", cancellable = true)
+    @Inject(
+        method = "blit(Lnet/minecraft/resources/ResourceLocation;IIFFIIII)V",
+        at = @At("HEAD"),
+        cancellable = true
+    )
     private void blit(
         ResourceLocation location,
         int x, int y,
@@ -31,8 +35,8 @@ public class MixinGuiGraphics {
         int textureWidth, int textureHeight,
         CallbackInfo info
     ) {
-        if (ControllerClient.jesusRenderer.isJesusLocation(location)) {
-            float jesusAlpha = ControllerClient.jesusRenderer.getAlpha();
+        if (ControllerClient.jesusRenderer.isJesusResource(location)) {
+            float alpha = ControllerClient.jesusRenderer.getAlpha();
             innerBlit(
                 location,
                 x, x + width,
@@ -40,7 +44,7 @@ public class MixinGuiGraphics {
                 0,
                 uOffset / textureWidth, (uOffset + width) / textureWidth,
                 vOffset / textureHeight, (vOffset + height) / textureHeight,
-                1f, 1f, 1f, jesusAlpha
+                1f, 1f, 1f, alpha
             );
             info.cancel();
         }

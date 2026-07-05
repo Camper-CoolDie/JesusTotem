@@ -1,5 +1,7 @@
 apply plugin: 'fabric-loom'
 
+base.archivesName = "$mod_id-fabric-mc$minecraft_version"
+
 dependencies {
     // Minecraft
     minecraft "com.mojang:minecraft:$minecraft_version"
@@ -16,7 +18,7 @@ dependencies {
 }
 
 tasks.withType(ProcessResources).configureEach {
-    filesMatching(['fabric.mod.json', '*.mixins.json']) {
+    filesMatching(['fabric.mod.json']) {
         expand([
             'mod_id':                  mod_id,
             'mod_name':                mod_name,
@@ -25,7 +27,6 @@ tasks.withType(ProcessResources).configureEach {
             'mod_author':              mod_author,
             'mod_description':         mod_description,
             'minecraft_version_range': minecraft_version_range,
-            'java_version':            java_version,
         ])
     }
 }

@@ -5,8 +5,9 @@
     "compatibilityLevel": "JAVA_$java_version",
     "client": [
         "MixinGameRenderer",
+        "MixinGui",
         "MixinGuiGraphics",
-        "MixinGui"
+        "MixinTimer"
     ],
     "injectors": {
         "defaultRequire": 1
