@@ -10,7 +10,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(GameRenderer.class)
 public class MixinGameRenderer {
-    @Inject(at = @At("HEAD"), method = "displayItemActivation(Lnet/minecraft/world/item/ItemStack;)V")
+    @Inject(
+        method = "displayItemActivation(Lnet/minecraft/world/item/ItemStack;)V",
+        at = @At("TAIL")
+    )
     private void displayItemActivation(ItemStack stack, CallbackInfo info) {
         ControllerClient.jesusRenderer.spawn();
     }

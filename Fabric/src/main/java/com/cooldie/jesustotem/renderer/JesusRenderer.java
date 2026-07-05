@@ -16,31 +16,46 @@ public class JesusRenderer {
     }
 
     private final ControllerJesus jesusController = new ControllerJesus();
+    private boolean paused = false;
+    private float alpha = 0f;
 
     public void spawn() {
-        jesusController.spawn();
+        jesusController.spawn(paused);
     }
 
     public void despawn() {
         jesusController.despawn();
     }
 
+    public void pause() {
+        if (!paused) {
+            jesusController.pause();
+            paused = true;
+        }
+    }
+
+    public void resume() {
+        if (paused) {
+            jesusController.resume();
+            paused = false;
+        }
+    }
+
     public void render(GuiGraphics graphics, float tickDelta) {
-        long time = System.currentTimeMillis();
-        float jesusAlpha = jesusController.getAlpha(time);
-        if (jesusAlpha == 0f) {
+        ControllerJesus.Frame frame = jesusController.getFrame();
+        if (frame.alpha() == 0f) {
             return;
         }
-        int jesusIndex = jesusController.getIndex(time);
 
         RenderSystem.disableDepthTest();
         RenderSystem.depthMask(false);
         RenderSystem.defaultBlendFunc();
+        alpha = frame.alpha();
 
         int guiWidth = graphics.guiWidth();
         int guiHeight = graphics.guiHeight();
         graphics.blit(
-            JESUS_TEXTURES[jesusIndex],
+            JESUS_TEXTURES[frame.index()],
             0, 0,
             0f, 0f,
             guiWidth, guiHeight,
@@ -51,11 +66,11 @@ public class JesusRenderer {
         RenderSystem.enableDepthTest();
     }
 
-    public boolean isJesusLocation(ResourceLocation location) {
+    public boolean isJesusResource(ResourceLocation location) {
         return location.getNamespace() == "jesustotem";
     }
 
     public float getAlpha() {
-        return jesusController.getAlpha(System.currentTimeMillis());
+        return alpha;
     }
 }

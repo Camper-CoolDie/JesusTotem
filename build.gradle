@@ -17,8 +17,6 @@ subprojects {
         maven { url = 'https://maven.terraformersmc.com/releases/' }
     }
 
-    base.archivesName = "$mod_id-${name.toLowerCase()}-mc$minecraft_version"
-
     tasks.withType(Jar).configureEach {
         manifest {
             attributes([
