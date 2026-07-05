@@ -60,8 +60,6 @@ public class ConfigScreen extends Screen {
 
     @Override
     protected void init() {
-        ControllerConfig.load();
-
         LinearLayout contents = layout.addToContents(LinearLayout.vertical().spacing(4));
         contents.addChild(fadeInButton);
         contents.addChild(holdButton);
