@@ -16,7 +16,10 @@ import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 public class JesusTotemClient {
     private static ControllerClient client;
 
-    private static final File CONFIG_FILE = FMLPaths.CONFIGDIR.get().resolve("jesustotem.json").toFile();
+    private static final File CONFIG_FILE = FMLPaths.CONFIGDIR
+        .get()
+        .resolve("jesustotem.json")
+        .toFile();
 
     public JesusTotemClient(FMLModContainer container, IEventBus eventBus, Dist dist) {
         client = new ControllerClient(CONFIG_FILE);

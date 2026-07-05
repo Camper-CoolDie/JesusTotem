@@ -11,7 +11,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Gui.class)
 public class MixinGui {
-    @Inject(at = @At("TAIL"), method = "renderCameraOverlays(Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/client/DeltaTracker;)V")
+    @Inject(
+        method = "renderCameraOverlays(Lnet/minecraft/client/gui/GuiGraphics;Lnet/minecraft/client/DeltaTracker;)V",
+        at = @At("TAIL")
+    )
     private void renderCameraOverlays(GuiGraphics graphics, DeltaTracker tickDelta, CallbackInfo info) {
         ControllerClient.jesusRenderer.render(graphics, tickDelta);
     }

@@ -1,5 +1,7 @@
 apply plugin: 'net.neoforged.moddev'
 
+base.archivesName = "$mod_id-neoforge-mc$neoforge_minecraft_version"
+
 dependencies {
     // Mixin
     compileOnly 'org.spongepowered:mixin:0.8.7'
@@ -15,7 +17,7 @@ neoForge {
 }
 
 tasks.withType(ProcessResources).configureEach {
-    filesMatching(['META-INF/neoforge.mods.toml', '*.mixins.json']) {
+    filesMatching(['META-INF/neoforge.mods.toml']) {
         expand([
             'mod_id':                  mod_id,
             'mod_name':                mod_name,
@@ -24,7 +26,6 @@ tasks.withType(ProcessResources).configureEach {
             'mod_author':              mod_author,
             'mod_description':         mod_description,
             'minecraft_version_range': minecraft_version_range,
-            'java_version':            java_version,
             'neoforge_version_range':  neoforge_version_range,
         ])
     }
