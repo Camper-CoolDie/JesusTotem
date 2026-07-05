@@ -1,5 +1,4 @@
 plugins {
-    id 'fabric-loom' version '1.17.9' apply false
     id 'net.neoforged.moddev' version '2.0.141' apply false
 }
 
@@ -12,43 +11,25 @@ subprojects {
     java.sourceCompatibility = java.targetCompatibility = JavaVersion.toVersion(java_version)
 
     repositories {
-        // Fabric
-        maven { url = 'https://maven.fabricmc.net/' }
-        // Mod Menu
-        maven { url = 'https://maven.terraformersmc.com/releases/' }
         // Spongepowered
         maven { url = 'https://repo.spongepowered.org/maven/' }
     }
 
-    if (name != 'Common') {
-        dependencies {
-            implementation project(':Common')
+    tasks.withType(Jar).configureEach {
+        manifest {
+            attributes([
+                'Specification-Title': mod_id,
+                'Specification-Vendor': mod_author,
+                'Specification-Version': '1',
+                'Implementation-Title': mod_name,
+                'Implementation-Version': mod_version,
+                'Implementation-Vendor': mod_author,
+                'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+            ])
         }
 
-        tasks.withType(Jar).configureEach {
-            from project(':Common').sourceSets.main.output.classesDirs
-            dependsOn project(':Common').compileJava
-
-            manifest {
-                attributes([
-                    'Specification-Title': mod_id,
-                    'Specification-Vendor': mod_author,
-                    'Specification-Version': '1',
-                    'Implementation-Title': mod_name,
-                    'Implementation-Version': mod_version,
-                    'Implementation-Vendor': mod_author,
-                    'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
-                ])
-            }
-
-            metaInf {
-                from rootProject.file('LICENSE.txt')
-            }
-        }
-
-        tasks.withType(ProcessResources).configureEach {
-            from project(':Common').sourceSets.main.output.resourcesDir
-            dependsOn project(':Common').processResources
+        metaInf {
+            from rootProject.file('LICENSE.txt')
         }
     }
 }

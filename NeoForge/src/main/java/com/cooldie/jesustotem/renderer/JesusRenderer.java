@@ -9,11 +9,11 @@ import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.VertexFormat;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.ARGB;
 
 public class JesusRenderer {
-    private static final ResourceLocation[] JESUS_TEXTURES;
+    private static final Identifier[] JESUS_TEXTURES;
     private static final RenderPipeline JESUS = RenderPipeline.builder()
         .withUniform("DynamicTransforms", UniformType.UNIFORM_BUFFER)
         .withUniform("Projection", UniformType.UNIFORM_BUFFER)
@@ -28,10 +28,10 @@ public class JesusRenderer {
         .build();
 
     static {
-        JESUS_TEXTURES = new ResourceLocation[3];
-        JESUS_TEXTURES[0] = ResourceLocation.fromNamespaceAndPath("jesustotem", "textures/misc/jesus0.png");
-        JESUS_TEXTURES[1] = ResourceLocation.fromNamespaceAndPath("jesustotem", "textures/misc/jesus1.png");
-        JESUS_TEXTURES[2] = ResourceLocation.fromNamespaceAndPath("jesustotem", "textures/misc/jesus2.png");
+        JESUS_TEXTURES = new Identifier[3];
+        JESUS_TEXTURES[0] = Identifier.fromNamespaceAndPath("jesustotem", "textures/misc/jesus0.png");
+        JESUS_TEXTURES[1] = Identifier.fromNamespaceAndPath("jesustotem", "textures/misc/jesus1.png");
+        JESUS_TEXTURES[2] = Identifier.fromNamespaceAndPath("jesustotem", "textures/misc/jesus2.png");
     }
 
     private final ControllerJesus jesusController = new ControllerJesus();
