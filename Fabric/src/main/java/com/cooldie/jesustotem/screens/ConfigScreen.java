@@ -23,7 +23,7 @@ public class ConfigScreen extends Screen {
     private static final Component FADE_OUT_TOOLTIP = Component.translatable("options.jesustotem.fadeOut.tooltip");
     private static final Component RESET_ALL = Component.translatable("options.jesustotem.resetAll");
 
-    private final ConfigScreen.DurationSliderButton fadeInButton = new ConfigScreen.DurationSliderButton(
+    private final DurationSliderButton fadeInButton = new DurationSliderButton(
         0, 0,
         200, 20,
         FADE_IN,
@@ -32,7 +32,7 @@ public class ConfigScreen extends Screen {
         ControllerJesus.fadeIn,
         ControllerJesus.FADE_IN
     );
-    private final ConfigScreen.DurationSliderButton holdButton = new ConfigScreen.DurationSliderButton(
+    private final DurationSliderButton holdButton = new DurationSliderButton(
         0, 0,
         200, 20,
         HOLD,
@@ -41,7 +41,7 @@ public class ConfigScreen extends Screen {
         ControllerJesus.hold,
         ControllerJesus.HOLD
     );
-    private final ConfigScreen.DurationSliderButton fadeOutButton = new ConfigScreen.DurationSliderButton(
+    private final DurationSliderButton fadeOutButton = new DurationSliderButton(
         0, 0,
         200, 20,
         FADE_OUT,

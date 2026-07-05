@@ -12,6 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Gui.class)
 public class MixinGui {
     @Inject(
+        method = "render(Lnet/minecraft/client/gui/GuiGraphics;F)V",
         at = @At(
             value = "INVOKE",
             target = "Lnet/minecraft/client/multiplayer/MultiPlayerGameMode;getPlayerMode()Lnet/minecraft/world/level/GameType;"
@@ -25,10 +26,18 @@ public class MixinGui {
                 value = "INVOKE",
                 target = "Lnet/minecraft/client/gui/Gui;renderHotbar(FLnet/minecraft/client/gui/GuiGraphics;)V"
             )
-        ),
-        method = "render(Lnet/minecraft/client/gui/GuiGraphics;F)V"
+        )
     )
     private void render(GuiGraphics graphics, float tickDelta, CallbackInfo info) {
         ControllerClient.jesusRenderer.render(graphics, tickDelta);
+    }
+
+    @Inject(method = "tick(Z)V", at = @At("TAIL"))
+    private void tick(boolean pause, CallbackInfo info) {
+        if (pause) {
+            ControllerClient.jesusRenderer.pause();
+        } else {
+            ControllerClient.jesusRenderer.resume();
+        }
     }
 }

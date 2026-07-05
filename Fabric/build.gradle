@@ -1,5 +1,7 @@
 apply plugin: 'fabric-loom'
 
+base.archivesName = "$mod_id-fabric-mc$minecraft_version"
+
 dependencies {
     // Minecraft
     minecraft "com.mojang:minecraft:$minecraft_version"
