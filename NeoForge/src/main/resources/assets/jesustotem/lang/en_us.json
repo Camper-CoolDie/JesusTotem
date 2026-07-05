@@ -1,12 +1,12 @@
 {
-    "fml.menu.mods.info.description.jesustotem": "This mod adds godly screen & sound effects to the Totem of Undying. Experience the power of God!",
-    "options.jesustotem.fadeIn": "Fade-In",
-    "options.jesustotem.fadeIn.tooltip": "Fade-in duration of Jesus.",
-    "options.jesustotem.fadeOut": "Fade-Out",
-    "options.jesustotem.fadeOut.tooltip": "Fade-out duration of Jesus.",
-    "options.jesustotem.hold": "Hold",
-    "options.jesustotem.hold.tooltip": "Hold duration of Jesus.",
-    "options.jesustotem.percent_and_millisecond_value": "%s: %s%% (%s ms)",
-    "options.jesustotem.resetAll": "Reset Durations",
-    "options.jesustotem.title": "Jesus' Totem Configuration"
+  "fml.menu.mods.info.description.jesustotem": "This mod adds godly screen & sound effects to the Totem of Undying. Experience the power of God!",
+  "options.jesustotem.fadeIn": "Fade-In",
+  "options.jesustotem.fadeIn.tooltip": "Fade-in duration of Jesus.",
+  "options.jesustotem.fadeOut": "Fade-Out",
+  "options.jesustotem.fadeOut.tooltip": "Fade-out duration of Jesus.",
+  "options.jesustotem.hold": "Hold",
+  "options.jesustotem.hold.tooltip": "Hold duration of Jesus.",
+  "options.jesustotem.percent_and_millisecond_value": "%s: %s%% (%s ms)",
+  "options.jesustotem.resetAll": "Reset Durations",
+  "options.jesustotem.title": "Jesus' Totem Configuration"
 }
