@@ -1,19 +1,11 @@
 apply plugin: 'net.neoforged.moddev'
 
 base.archivesName = "$mod_id-neoforge-mc$neoforge_minecraft_version"
+neoForge.version = neoforge_version
 
 dependencies {
     // Mixin
     compileOnly 'org.spongepowered:mixin:0.8.7'
-}
-
-neoForge {
-    version = neoforge_version
-
-    parchment {
-        minecraftVersion = minecraft_version
-        mappingsVersion = parchment_version
-    }
 }
 
 tasks.withType(ProcessResources).configureEach {

@@ -1,20 +1,15 @@
-apply plugin: 'fabric-loom'
+apply plugin: 'net.fabricmc.fabric-loom'
 
 base.archivesName = "$mod_id-fabric-mc$minecraft_version"
 
 dependencies {
     // Minecraft
     minecraft "com.mojang:minecraft:$minecraft_version"
-    // Mappings
-    mappings loom.layered {
-        officialMojangMappings()
-        parchment("org.parchmentmc.data:parchment-$minecraft_version:$parchment_version@zip")
-    }
 
     // Fabric Loader
-    modImplementation "net.fabricmc:fabric-loader:$fabric_loader_version"
+    implementation "net.fabricmc:fabric-loader:$fabric_loader_version"
     // Mod Menu
-    modImplementation "com.terraformersmc:modmenu:$fabric_mod_menu_version"
+    implementation "com.terraformersmc:modmenu:$fabric_mod_menu_version"
 }
 
 tasks.withType(ProcessResources).configureEach {

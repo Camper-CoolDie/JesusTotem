@@ -10,8 +10,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(DeltaTracker.Timer.class)
 public class MixinTimer {
     @Inject(method = "updatePauseState(Z)V", at = @At("TAIL"))
-    private void updatePauseState(boolean paused, CallbackInfo info) {
-        if (paused) {
+    private void updatePauseState(boolean pauseState, CallbackInfo info) {
+        if (pauseState) {
             ControllerClient.jesusRenderer.pause();
         } else {
             ControllerClient.jesusRenderer.resume();
